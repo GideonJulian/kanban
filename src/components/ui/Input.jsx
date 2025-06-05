@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ type, placeholder, id, label }) => {
+const Input = ({ type, placeholder, id, label, style }) => {
   return (
     <div>
       <div>
@@ -12,10 +12,10 @@ const Input = ({ type, placeholder, id, label }) => {
         type={type}
         placeholder={placeholder}
         id={id}
-        className="rounded-lg border-2 border-[#D0D5DD] py-3 px-5 w-[360px] mt-3"
+        className={style}
       />
     </div>
   );
-};
+};                              
 
 export default Input;
