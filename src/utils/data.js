@@ -17,6 +17,12 @@ const productData = [
   { name: "Harpic", price: 605, quantity: 10, threshold: 5, expiry: "9/1/23", status: "In-stock" },
   { name: "Ariel", price: 408, quantity: 23, threshold: 7, expiry: "15/12/23", status: "Out of stock" },
   { name: "Scotch Brite", price: 359, quantity: 43, threshold: 8, expiry: "6/6/23", status: "In-stock" },
-  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
 ];
 export {productColumns, productData}

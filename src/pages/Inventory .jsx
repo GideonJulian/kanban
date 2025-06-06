@@ -105,7 +105,7 @@ const Inventory = () => {
             columns={productColumns}
             data={productData}
             title="Products"
-            pageSize={5}
+            pageSize={6}
           />
         </div>
       </div>
