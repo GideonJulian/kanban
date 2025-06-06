@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "../components/ui/Button";
 import filterIcon from "../assets/icons/InvenIcons/filter.png";
+import { productColumns, productData } from "../utils/data";
+import Table from "../components/ui/Table";
 
 const Inventory = () => {
   return (
@@ -97,6 +99,9 @@ const Inventory = () => {
               style={`py-3 px-4 bg-transparent border-2 border-[#D0D5DD] rounded-md`}
             />
           </div>
+        </div>
+        <div>
+          <Table columns={productColumns} data={productData} title="Products" />
         </div>
       </div>
     </div>
