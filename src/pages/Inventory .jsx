@@ -85,13 +85,14 @@ const Inventory = () => {
             />
             <Button
               text={
-                <div className="flex items-center gpa-6">
+                <div className="flex items-center gpa-10  justify-between">
                   <img src={filterIcon} />
-                  Filters
+                  <span>Filters</span>
                 </div>
               }
               style={`py-3 px-6 bg-transparent border-2 border-[#D0D5DD]  rounded-md`}
-            /> <Button
+            />{" "}
+            <Button
               text={"Download all"}
               style={`py-3 px-4 bg-transparent border-2 border-[#D0D5DD] rounded-md`}
             />
