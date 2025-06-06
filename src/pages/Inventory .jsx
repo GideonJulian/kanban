@@ -93,15 +93,17 @@ const Inventory = () => {
                 </div>
               }
               style={`py-3 px-6 bg-transparent border-2 border-[#D0D5DD]  rounded-md`}
+              disabled={currentPage === 1}
             />{" "}
             <Button
               text={"Download all"}
               style={`py-3 px-4 bg-transparent border-2 border-[#D0D5DD] rounded-md`}
+              disabled={currentPage === totalPage}
             />
           </div>
         </div>
         <div>
-          <Table columns={productColumns} data={productData}  />
+          <Table columns={productColumns} data={productData} pageSize={5} />
         </div>
       </div>
     </div>
