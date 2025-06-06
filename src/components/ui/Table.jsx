@@ -1,6 +1,4 @@
-// components/Table.jsx
 import React, { useState } from "react";
-import Button from "./Button";
 
 const getStatusColor = (status) => {
   const statusLower = status.toLowerCase();
@@ -9,21 +7,23 @@ const getStatusColor = (status) => {
   if (statusLower.includes("low stock")) return "text-yellow-600";
   return "text-gray-500";
 };
-const [currentPage, setCurrentPage] = useState(1);
-const totalPage = Math.ceil(data.length / pageSize);
 
-const startIdx = (currentPage - 1) * pageSize;
-const currentData = data.slice(startIdx, startIdx + pageSize);
-
-const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-const handleNext = () =>
-  setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 const Table = ({ columns, data, title = "Table", pageSize = 5 }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(data.length / pageSize);
+
+  const startIdx = (currentPage - 1) * pageSize;
+  const currentData = data.slice(startIdx, startIdx + pageSize);
+
+  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+  const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+
   return (
     <div className="p-4">
-      <div className="overflow-x-auto h-[350px]">
-        <table className="w-full table-auto  text-left">
-          <thead className="">
+      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <div className="overflow-x-auto">
+        <table className="min-w-[1000px] table-auto border border-gray-300 text-left">
+          <thead className="bg-gray-100">
             <tr>
               {columns.map((col) => (
                 <th key={col.accessor} className="px-4 py-2 whitespace-nowrap">
@@ -33,15 +33,13 @@ const Table = ({ columns, data, title = "Table", pageSize = 5 }) => {
             </tr>
           </thead>
           <tbody>
-            {data.map((row, rowIndex) => (
+            {currentData.map((row, rowIndex) => (
               <tr key={rowIndex} className="border-t">
                 {columns.map((col) => (
                   <td
                     key={col.accessor}
                     className={`px-4 py-2 whitespace-nowrap ${
-                      col.accessor === "status"
-                        ? getStatusColor(row[col.accessor])
-                        : ""
+                      col.accessor === "status" ? getStatusColor(row[col.accessor]) : ""
                     }`}
                   >
                     {typeof col.render === "function"
@@ -54,21 +52,26 @@ const Table = ({ columns, data, title = "Table", pageSize = 5 }) => {
           </tbody>
         </table>
       </div>
-      {/* PAGINATION CONTROLL  */}
+
+      {/* Pagination Controls */}
       <div className="flex items-center justify-between mt-4">
-        <Button
-          style={"px-3 py-1 border rounded disabled:opacity-50"}
+        <button
           onClick={handlePrev}
-          text={'Prev'}
-        />
-         <span className="text-sm text-gray-700">
-          Page {currentPage} of {totalPage}
+          disabled={currentPage === 1}
+          className="px-3 py-1 border rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="text-sm text-gray-700">
+          Page {currentPage} of {totalPages}
         </span>
-           <Button
-          style={"px-3 py-1 border rounded disabled:opacity-50"}
+        <button
           onClick={handleNext}
-          text={'Next'}
-        />
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 border rounded disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
