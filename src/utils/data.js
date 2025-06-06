@@ -19,4 +19,4 @@ const productData = [
   { name: "Scotch Brite", price: 359, quantity: 43, threshold: 8, expiry: "6/6/23", status: "In-stock" },
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }
 ];
-export {productColumns, productData}
+export {productColumns, pro}

@@ -101,7 +101,7 @@ const Inventory = () => {
           </div>
         </div>
         <div>
-          <Table columns={productColumns} data={productData} title="Products" />
+          <Table columns={productColumns} data={productData}  />
         </div>
       </div>
     </div>
