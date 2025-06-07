@@ -22,7 +22,7 @@ const route = createBrowserRouter([
       },
       {
         path: "inventory",
-        element: <Inventory />,
+        elem
       },
       {
         path: "reports",

@@ -26,3 +26,6 @@ const productData = [
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
 ];
 export {productColumns, productData}
+
+//  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+//   const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));

@@ -31,9 +31,10 @@ const Sidebar = () => {
         <div className="mt-4 flex flex-col space-y-8 px-4">
           {menuItems.map((item, index) => (
             <NavLink
-              to={item.path}
-              key={index}
-              className={({ isActive }) =>
+            
+            to={item.path}
+            key={index}
+              className={({ isActive }) => 
                 `flex items-center gap-6 text-[17px]  py-3 px-2 rounded-md transition-colors duration-200 ${
                   isActive
                     ? "bg-primary-100 text-primary-500 "
