@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import filterIcon from "../assets/icons/InvenIcons/filter.png";
 import { productColumns, productData } from "../utils/data";
 import Table from "../components/ui/Table";
+import AddNewProductModal from "../components/ui/AddNewProductModal";
 
 const Inventory = () => {
+  const [open, setOpen] = useState(false);
+  const handleAddProduct = () => {
+    setOpen(true);
+  };
+  const hanldeClose = () => {
+    setOpen(!open)
+  }
   return (
     <div>
       <div className="w-full p-5 bg-white rounded-md">
@@ -84,6 +92,7 @@ const Inventory = () => {
             <Button
               text={"Add Products"}
               style={`py-3 px-4 bg-[#1366D9] text-white rounded-md`}
+              onClick={handleAddProduct}
             />
             <Button
               text={
@@ -108,6 +117,26 @@ const Inventory = () => {
             pageSize={6}
           />
         </div>
+        <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
+          <h2 className="text-[#383E49] font-[500] text-[20px]">New Product</h2>
+          <p></p>
+          <div className="flex justify-end gap-2">
+            <Button
+              style={
+                "bg-transparent border-2 border-[#F0F1F3] py-2 px-4 rounded-lg  "
+              }
+              text={"Discard"}
+               onClick={hanldeClose}
+            />{" "}
+            <Button
+              style={
+                "bg-primary-600 text-white border-2 border-[#F0F1F3] py-2 px-4 rounded-lg  "
+              }
+              text={"Add Product"}
+             
+            />
+          </div>
+        </AddNewProductModal>
       </div>
     </div>
   );
