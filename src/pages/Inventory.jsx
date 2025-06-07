@@ -11,8 +11,8 @@ const Inventory = () => {
     setOpen(true);
   };
   const hanldeClose = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
   return (
     <div>
       <div className="w-full p-5 bg-white rounded-md">
@@ -115,7 +115,7 @@ const Inventory = () => {
             data={productData}
             title="Products"
             pageSize={7}
-            overflow={'h-[350px]'}
+            overflow={"h-[350px]"}
           />
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
@@ -127,14 +127,13 @@ const Inventory = () => {
                 "bg-transparent border-2 border-[#F0F1F3] py-2 px-4 rounded-lg  "
               }
               text={"Discard"}
-               onClick={hanldeClose}
+              onClick={hanldeClose}
             />{" "}
             <Button
               style={
                 "bg-primary-600 text-white border-2 border-[#F0F1F3] py-2 px-4 rounded-lg  "
               }
               text={"Add Product"}
-             
             />
           </div>
         </AddNewProductModal>

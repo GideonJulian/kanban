@@ -21,7 +21,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen p-7 bg-white w-[280px]">
+    <div className="h-screen p-7 bg-white w-[280px] hidden md:block ">
       <div>
         <div className="flex items-center gap-2 mb-10">
           <img src={logo} alt="" className="w-[48px]" />
