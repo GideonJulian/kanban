@@ -14,7 +14,7 @@ const Inventory = () => {
           </h1>
         </div>
         <div className="flex py-4">
-          <div className="flex flex-col gap-3 border-r-2 border-[#F0F1F3] pr-28">
+          <div className="flex flex-col gap-3 border-r-2 border-[#F0F1F3] pr-20">
             <h1 className="font-[600] text-primary-500 text-[17px] ">
               Categories
             </h1>
