@@ -114,7 +114,8 @@ const Inventory = () => {
             columns={productColumns}
             data={productData}
             title="Products"
-            pageSize={6}
+            pageSize={7}
+            overflow={'h-[350px]'}
           />
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>

@@ -24,6 +24,7 @@ const productData = [
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" },
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
+  { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
 ];
 export {productColumns, productData}
 

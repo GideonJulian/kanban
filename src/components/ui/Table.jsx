@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PaginationControll from "./PaginationControll";
 
 const getStatusColor = (status) => {
   const statusLower = status.toLowerCase();
@@ -8,7 +9,14 @@ const getStatusColor = (status) => {
   return "text-gray-500";
 };
 
-const Table = ({ columns, data, title = "Table", pageSize = 7 }) => {
+const Table = ({
+  columns,
+  data,
+  title = "Table",
+  pageSize = 7,
+  showPagination = true,
+  overflow
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / pageSize);
 
@@ -16,12 +24,13 @@ const Table = ({ columns, data, title = "Table", pageSize = 7 }) => {
   const currentData = data.slice(startIdx, startIdx + pageSize);
 
   const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
-  const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const handleNext = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
-      <div className="overflow-x-auto h-[350px]">
+      {/* <h2 className="text-2xl font-semibold mb-4">{title}</h2> */}
+      <div className={`overflow-x-auto ${overflow}`}>
         <table className="w-full  table-auto text-left">
           <thead className="">
             <tr>
@@ -39,7 +48,9 @@ const Table = ({ columns, data, title = "Table", pageSize = 7 }) => {
                   <td
                     key={col.accessor}
                     className={`px-4 py-3 whitespace-nowrap ${
-                      col.accessor === "status" ? getStatusColor(row[col.accessor]) : ""
+                      col.accessor === "status"
+                        ? getStatusColor(row[col.accessor])
+                        : ""
                     }`}
                   >
                     {typeof col.render === "function"
@@ -54,25 +65,14 @@ const Table = ({ columns, data, title = "Table", pageSize = 7 }) => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex items-center justify-between mt-1">
-        <button
-      onClick={handlePrev}
-          disabled={currentPage === 1}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <span className="text-sm text-gray-700">
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+      {showPagination && (
+        <PaginationControll
+          totalPages={totalPages}
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+          currentPage={currentPage}
+        />
+      )}
     </div>
   );
 };

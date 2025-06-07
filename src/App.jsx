@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./pages/Signup";
 import DashboardLayout from "./Layouts/DashboardLayout";
 import Dashboard from "./pages/Dashboard ";
-import Inventory from "./pages/Inventory ";
+import Inventory from "./pages/Inventory";
 import Report from "./pages/Reports";
 import Suppliers from "./pages/Suppliers";
 import Orders from "./pages/Orders";
@@ -22,7 +22,10 @@ const route = createBrowserRouter([
       },
       {
         path: "inventory",
-        elem
+        element: <Inventory />,
+        children: [
+          
+        ]
       },
       {
         path: "reports",

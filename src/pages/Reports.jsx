@@ -1,16 +1,28 @@
 import React from "react";
+import Table from "../components/ui/Table";
 
 const Reports = () => {
   const ReportColumns = [
-  { header: "ProdCategorycts", accessor: "name" },
-  { header: "Turn Over", accessor: "price", render: (val) => `₹${val}` },
-  { header: "Quantity", accessor: "quantity", render: (val) => `${val} Packets` },
+    { header: "Products", accessor: "name" },
+    { header: "Turn Over", accessor: "price", render: (val) => `₹${val}` },
+    {
+      header: "Increase By",
+      accessor: "increasedBy",
+      render: (val) => (
+        <span className="text-success-600 font-medium">{val}</span>
+      ), // green style
+    },
+  ];
 
-];
-
+  const tableData = [
+    { name: "Vegetable", price: "26,000", increasedBy: "3.2%" },
+    { name: "Fruits", price: "18,000", increasedBy: "2.4%" },
+    { name: "Grains", price: "34,500", increasedBy: "5.1%" },
+    { name: "Beverages", price: "22,700", increasedBy: "1.9%" },
+  ];
   return (
     <div>
-      <div className="flex w-full gap-10">
+      <div className="flex  w-full gap-10">
         <div className="bg-white w-2/3 rounded-md p-4 flex flex-col  ">
           <div>
             <h1 className="text-[#383E49] font-[500] text-[20px]">Overview</h1>
@@ -73,7 +85,15 @@ const Reports = () => {
           </div>
         </div>
         <div className="bg-white w-2/3 rounded-md p-4 ">
-        
+          <h1 className="text-[#383E49] font-[500] text-[20px]">
+            Best selling category
+          </h1>
+          <Table
+            columns={ReportColumns}
+            pageSize={3}
+            data={tableData}
+            showPagination={false}
+          />
         </div>
       </div>
     </div>
