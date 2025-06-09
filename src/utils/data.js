@@ -38,6 +38,44 @@ const SuppliersColumns = [
   },
   { header: "On the way", accessor: "onTheWay"},
 ];
+const OrdersColumns = [
+  { header: "Products", accessor: "product" },
+  { header: "Order Value", accessor: "orderValue" },
+  { header: "Quantity", accessor: "Quantity" },
+  { header: "Order ID", accessor: "orderId" },
+  { header: "Expected Delivery", accessor: "expectedDelivery" },
+  {
+    header: "Status",
+    accessor: "status",
+    render: (val) => {
+      const colorClass =
+        val === "Not Taking Return" ? "text-red-600" : "text-success-600";
+      return React.createElement(
+        "span",
+        {
+          className: `${colorClass} font-[16px]`,
+        },
+        val
+      );
+    },
+  },
+
+];
+
+const OrdersData = [
+  {
+
+    product: "Kit Kat",
+    orderValue: 7687764556,
+    Quantity: "",
+     orderId: '13',
+     expectedDelivery: '',
+    status: "Taking Return",
+   
+  },
+ 
+  // ... repeat as needed
+];
 
 const SupplierData = [
   {
@@ -229,7 +267,7 @@ const productData = [
     status: "Low stock",
   },
 ];
-export { productColumns, productData, SuppliersColumns, SupplierData };
+export { productColumns, productData, SuppliersColumns, SupplierData, OrdersColumns, OrdersData };
 
 //  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 //   const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));

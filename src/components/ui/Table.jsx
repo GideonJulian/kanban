@@ -15,7 +15,7 @@ const Table = ({
   title = "Table",
   pageSize = 7,
   showPagination = true,
-  overflow
+  overflow_x_h
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / pageSize);
@@ -30,7 +30,7 @@ const Table = ({
   return (
     <div className="p-4">
       {/* <h2 className="text-2xl font-semibold mb-4">{title}</h2> */}
-      <div className={`overflow-x-auto ${overflow}`}>
+      <div className={`overflow-x-auto ${overflow_x_h} overflow-y-auto`}>
         <table className="w-full  table-auto text-left">
           <thead className="">
             <tr>
