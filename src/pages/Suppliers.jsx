@@ -46,7 +46,7 @@ const Suppliers = () => {
             columns={SuppliersColumns}
             data={SupplierData}
             title="Suppliers"
-            pageSize={5}
+            pageSize={7}
             overflow={"h-auto"}
           />
         </div>
