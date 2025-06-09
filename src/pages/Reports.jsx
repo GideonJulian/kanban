@@ -32,7 +32,7 @@ const Reports = () => {
             Overview
           </h1>
 
-          <div className="flex flex-wrap justify-between border-b pb-3 gap-y-5">
+          <div className="flex justify-between border-b pb-3 gap-y-5">
             {/* Metrics Top Row */}
             {[
               ["₹21,190", "Total Profit"],

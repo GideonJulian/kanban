@@ -38,7 +38,7 @@ const Inventory = () => {
             <div className="flex justify-between">
               <h1 className="font-[600] text-[#5D6679] text-[18px]">868</h1>
               <h1 className="font-[600] text-[#5D6679] text-[18px]">₹25000</h1>
-            </div>
+            </div>                    
             <div className="flex justify-between gap-20">
               <h1 className="text-[#858D9D] font-[400] text-[14px]">
                 Last 7 days

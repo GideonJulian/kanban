@@ -7,6 +7,24 @@ const productColumns = [
   { header: "Expiry Date", accessor: "expiry" },
   { header: "Availability", accessor: "status" }
 ];
+const SuppliersColumns = [
+    { header: "Supplier Name", accessor: "name" },
+  { header: "Product", accessor: "price", render: (val) => `₹${val}` },
+  { header: "Contact Number", accessor: "quantity", render: (val) => `${val} Packets` },
+  { header: "Email", accessor: "threshold", render: (val) => `${val} Packets` },
+  { header: "Type", accessor: "expiry" },
+
+]
+const SupplierData = [
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+    { name: "Richard Martin", product: 'Kit Kat', contact: 7687764556, email: 'richard@gmail.com', status: "Taking Return" },
+
+]
 
 const productData = [
   { name: "Maggi", price: 430, quantity: 43, threshold: 12, expiry: "11/12/22", status: "In-stock" },
@@ -26,7 +44,7 @@ const productData = [
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
   { name: "Coca cola", price: 205, quantity: 41, threshold: 10, expiry: "11/11/22", status: "Low stock" }   ,
 ];
-export {productColumns, productData}
+export {productColumns, productData,SuppliersColumns, SupplierData}
 
 //  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 //   const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));

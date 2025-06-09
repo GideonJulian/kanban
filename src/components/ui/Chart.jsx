@@ -50,7 +50,6 @@ export default function ChartComponent() {
             dataKey="month"
             tick={{ fill: "#374151", dy: 10 }}
             axisLine={false}
-           
             tickLine={false}
           />
           <YAxis
@@ -80,6 +79,7 @@ export default function ChartComponent() {
             strokeWidth={2}
             dot={false}
           />
+   
           <ReferenceDot
             x="Nov"
             y={220342123}
