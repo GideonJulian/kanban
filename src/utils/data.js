@@ -36,7 +36,7 @@ const SuppliersColumns = [
       );
     },
   },
-  { header: "On the way", accessor: "onTheWay"},
+  { header: "On the way", accessor: "onTheWay" },
 ];
 const OrdersColumns = [
   { header: "Products", accessor: "product" },
@@ -49,7 +49,15 @@ const OrdersColumns = [
     accessor: "status",
     render: (val) => {
       const colorClass =
-        val === "Not Taking Return" ? "text-red-600" : "text-success-600";
+        val === "Delayed"
+          ? "text-[#F79009]"
+          : val === "Confirmed"
+          ? "text-[#1570EF]"
+          : val === "Returned"
+          ? "text-black"
+          : val === "Out for delivery"
+          ? "text-success-600"
+          : "";
       return React.createElement(
         "span",
         {
@@ -59,21 +67,40 @@ const OrdersColumns = [
       );
     },
   },
-
 ];
 
 const OrdersData = [
   {
-
     product: "Kit Kat",
-    orderValue: 7687764556,
-    Quantity: "",
-     orderId: '13',
-     expectedDelivery: '',
-    status: "Taking Return",
-   
+    orderValue: "₹4306",
+    Quantity: "43 Packets ",
+    orderId: "7535",
+    expectedDelivery: "11/12/22",
+    status: "Delayed",
   },
- 
+  {
+    product: "Bru",
+    orderValue: "₹4306",
+    Quantity: "23 Packets ",
+    orderId: "5724",
+    expectedDelivery: "21/12/22",
+    status: "Confirmed",
+  }, {
+    product: "Red Bull",
+    orderValue: "₹4075",
+    Quantity: "36 Packets ",
+    orderId: "7535",
+    expectedDelivery: "11/12/22",
+    status: "Returned",
+  },
+ {
+    product: "Kit Kat",
+    orderValue: "₹4306",
+    Quantity: "43 Packets ",
+    orderId: "7535",
+    expectedDelivery: "11/12/22",
+    status: "Out for delivery",
+  },
   // ... repeat as needed
 ];
 
@@ -84,7 +111,7 @@ const SupplierData = [
     contact: 7687764556,
     email: "richard@gmail.com",
     status: "Taking Return",
-    onTheWay: '13'
+    onTheWay: "13",
   },
   {
     name: "Tom Homan",
@@ -92,7 +119,7 @@ const SupplierData = [
     contact: 9867545368,
     email: "tomhoman@gmail.com",
     status: "Taking Return",
-    onTheWay: '-'
+    onTheWay: "-",
   },
   {
     name: "Veandir",
@@ -100,7 +127,7 @@ const SupplierData = [
     contact: 9867545566,
     email: "veandir@gmail.com",
     status: "Not Taking Return",
-    onTheWay: '12'
+    onTheWay: "12",
   },
   {
     name: "Charin",
@@ -108,7 +135,7 @@ const SupplierData = [
     contact: 9267545457,
     email: "charin@gmail.com",
     status: "Taking Return",
-    onTheWay: '-'
+    onTheWay: "-",
   },
   {
     name: "Hoffman",
@@ -116,7 +143,7 @@ const SupplierData = [
     contact: 9267545457,
     email: "hoffman@gmail.com",
     status: "Taking Return",
-    onTheWay: '9'
+    onTheWay: "9",
   },
   {
     name: "Fainden Juke",
@@ -124,15 +151,15 @@ const SupplierData = [
     contact: 9667545982,
     email: "fainden@gmail.com",
     status: "Not Taking Return",
-    onTheWay: '-'
+    onTheWay: "-",
   },
-   {
+  {
     name: "Fainden Juke",
     product: "Marie Gold ",
     contact: 9667545982,
     email: "fainden@gmail.com",
     status: "",
-    onTheWay: '7'
+    onTheWay: "7",
   },
   // ... repeat as needed
 ];
@@ -267,7 +294,14 @@ const productData = [
     status: "Low stock",
   },
 ];
-export { productColumns, productData, SuppliersColumns, SupplierData, OrdersColumns, OrdersData };
+export {
+  productColumns,
+  productData,
+  SuppliersColumns,
+  SupplierData,
+  OrdersColumns,
+  OrdersData,
+};
 
 //  const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 //   const handleNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));

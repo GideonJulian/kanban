@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/ui/Button";
 import filterIcon from "../assets/icons/InvenIcons/filter.png";
-import { OrdersColumns, productData } from "../utils/data";
+import { OrdersColumns, OrdersData } from "../utils/data";
 import Table from "../components/ui/Table";
 import AddNewProductModal from "../components/ui/AddNewProductModal";
 import { useState } from "react";
@@ -112,14 +112,14 @@ const Orders = () => {
         <div>
           <Table
             columns={OrdersColumns}
-            data={productData}
+            data={OrdersData}
             title="Products"
             pageSize={7}
             overflow={"h-[350px]"}
           />
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
-          <h2 className="text-[#383E49] font-[500] text-[20px]">New Product</h2>
+          <h2 className="text-[#383E49] font-[500] text-[20px]">New Order </h2>
           <p></p>
           <div className="flex justify-end gap-2">
             <Button

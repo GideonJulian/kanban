@@ -51,7 +51,7 @@ const Suppliers = () => {
           />
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
-          <h2 className="text-[#383E49] font-[500] text-[20px]">New Product</h2>
+          <h2 className="text-[#383E49] font-[500] text-[20px]">New Supplier</h2>
           <p></p>
           <div className="flex justify-end gap-2">
             <Button
