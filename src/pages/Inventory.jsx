@@ -4,7 +4,7 @@ import filterIcon from "../assets/icons/InvenIcons/filter.png";
 import { productColumns, productData } from "../utils/data";
 import Table from "../components/ui/Table";
 import AddNewProductModal from "../components/ui/AddNewProductModal";
-
+import Input from "../components/ui/Input";
 const Inventory = () => {
   const [open, setOpen] = useState(false);
   const handleAddProduct = () => {
@@ -13,6 +13,32 @@ const Inventory = () => {
   const hanldeClose = () => {
     setOpen(!open);
   };
+  const inputFields = [
+    {
+      label: "Product Name",
+      placeholder: "Enter product name",
+    },
+    {
+      label: "Product ID",
+      placeholder: "Enter Product ID",
+    },
+    {
+      label: "Category",
+      placeholder: "Enter Category ",
+    }, {
+      label: "Buying Price",
+      placeholder: "Enter Buying Price",
+    }, {
+      label: "Quantity",
+      placeholder: "Enter Product  Quantity",
+    }, {
+      label: "Expiry Date",
+      placeholder: "Enter Product  Expiry Date",
+    }, {
+      label: "Threshold Value",
+      placeholder: "Enter   Threshold Value",
+    },
+  ];
   return (
     <div>
       <div className="w-full p-5 bg-white rounded-md">
@@ -120,7 +146,21 @@ const Inventory = () => {
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
           <h2 className="text-[#383E49] font-[500] text-[20px]">New Product</h2>
-          <p></p>
+  <div className="flex  flex-col mt-4 mb-3 w-full">
+           
+            {inputFields.map((field, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between mt-4 mb-3"
+              >
+                <h1>{field.label}</h1>
+                <Input
+                  placeholder={field.placeholder}
+                  style="py-2 px-3 border w-[273px] rounded-md"
+                />
+              </div>
+            ))}
+          </div>
           <div className="flex justify-end gap-2">
             <Button
               style={
