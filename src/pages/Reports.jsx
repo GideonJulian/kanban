@@ -3,6 +3,24 @@ import Table from "../components/ui/Table";
 import ChartComponent from "../components/ui/Chart";
 
 const Reports = () => {
+  const Best_Selling_product = [
+    { header: "Products", accessor: "name" },
+    { header: "Product ID ", accessor: "productId", render: (val) => `${val}` },
+    { header: "Category ", accessor: "category", render: (val) => `${val}` },
+    {
+      header: "Remaining Quantity ",
+      accessor: "remainingQuan",
+      render: (val) => `${val} kg`,
+    },
+
+    {
+      header: "Increase By",
+      accessor: "increasedBy",
+      render: (val) => (
+        <span className="text-success-600 font-medium">{val}</span>
+      ),
+    },
+  ];
   const ReportColumns = [
     { header: "Products", accessor: "name" },
     { header: "Turn Over", accessor: "price", render: (val) => `₹${val}` },
@@ -14,12 +32,40 @@ const Reports = () => {
       ),
     },
   ];
-
-  const tableData = [
-    { name: "Vegetable", price: "26,000", increasedBy: "3.2%" },
-    { name: "Fruits", price: "18,000", increasedBy: "2.4%" },
-    { name: "Grains", price: "34,500", increasedBy: "5.1%" },
-    { name: "Beverages", price: "22,700", increasedBy: "1.9%" },
+  const tableData = [{ name: "Vegetable", price: 26000, increasedBy: "3.2%" }];
+  const Best_Seeling_tableData = [
+    {
+      name: "Vegetable",
+      productId: 23567,
+      category: "Vegetable",
+      remainingQuan: 225,
+      turnOver: 17000,
+      increasedBy: "3.2%",
+    },
+    {
+      name: "Onion",
+      productId: 23567,
+      category: "Vegetable",
+      remainingQuan: 200,
+      turnOver: 12000,
+      increasedBy: "1.3%",
+    },
+    {
+      name: "Maggi",
+      productId: 56841,
+      category: "Instant Food",
+      remainingQuan: 200,
+      turnOver: 10000,
+      increasedBy: "1.3%",
+    },
+    {
+      name: "Surf Execl ",
+      productId: 23567,
+      category: "Household",
+      remainingQuan: 125,
+      turnOver: 10000,
+      increasedBy: "1%",
+    },
   ];
 
   return (
@@ -39,11 +85,18 @@ const Reports = () => {
               ["₹18,300", "Revenue", "text-[#DBA362]"],
               ["₹17,432", "Sales", "text-[#845EBC]"],
             ].map(([amount, label, labelColor], index) => (
-              <div key={index} className="flex flex-col items-center gap-1 w-1/3">
+              <div
+                key={index}
+                className="flex flex-col items-center gap-1 w-1/3"
+              >
                 <h1 className="font-semibold text-[#5D6679] text-base md:text-lg text-center">
                   {amount}
                 </h1>
-                <p className={`text-[14px] font-normal text-center ${labelColor || "text-[#555555]"}`}>
+                <p
+                  className={`text-[14px] font-normal text-center ${
+                    labelColor || "text-[#555555]"
+                  }`}
+                >
                   {label}
                 </p>
               </div>
@@ -58,7 +111,10 @@ const Reports = () => {
               ["₹30,432", "MoM Profit"],
               ["₹1,10,432", "YoY Profit"],
             ].map(([amount, label], index) => (
-              <div key={index} className="flex flex-col gap-1 w-1/2 sm:w-1/2 md:w-auto">
+              <div
+                key={index}
+                className="flex flex-col gap-1 w-1/2 sm:w-1/2 md:w-auto"
+              >
                 <h1 className="font-medium text-[#5D6679] text-base md:text-lg">
                   {amount}
                 </h1>
@@ -88,6 +144,17 @@ const Reports = () => {
           Profit & Revenue
         </h1>
         <ChartComponent />
+      </div>
+      <div className="w-full mt-6 bg-white rounded-md p-4">
+        <h1 className="text-[#383E49] font-medium text-lg md:text-xl mb-4">
+          Best selling product
+        </h1>
+        <Table
+          columns={Best_Selling_product}
+          pageSize={3}
+          data={Best_Seeling_tableData}
+          showPagination={false}
+        />
       </div>
     </div>
   );
