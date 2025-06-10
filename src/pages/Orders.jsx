@@ -116,7 +116,7 @@ const Orders = () => {
           </div>
           <div className="flex items-center gap-4">
             <Button
-              text={"Add Products"}
+              text={"Add Order"}
               style={`py-3 px-4 bg-[#1366D9] text-white rounded-md`}
               onClick={handleAddProduct}
             />

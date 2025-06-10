@@ -1,10 +1,11 @@
 import React from "react";
 import filterIcon from "../assets/icons/InvenIcons/filter.png";
-import {SupplierData,SuppliersColumns } from "../utils/data";
+import { SupplierData, SuppliersColumns } from "../utils/data";
 import Table from "../components/ui/Table";
 import AddNewProductModal from "../components/ui/AddNewProductModal";
 import Button from "../components/ui/Button";
 import { useState } from "react";
+import Input from "../components/ui/Input";
 const Suppliers = () => {
   const [open, setOpen] = useState(false);
   const handleAddProduct = () => {
@@ -13,6 +14,36 @@ const Suppliers = () => {
   const hanldeClose = () => {
     setOpen(!open);
   };
+  const inputFields = [
+    {
+      label: "Supplier Name",
+      placeholder: "Enter Supplier Name",
+    },
+    {
+      label: "Product ",
+      placeholder: "Enter Product ",
+    },
+    {
+      label: "Category",
+      placeholder: "Enter Category ",
+    },
+    {
+      label: "Buying Price",
+      placeholder: "Enter Buying Price",
+    },
+    {
+      label: "Contact Number",
+      placeholder: "Enter Contact Number",
+    },
+    {
+      label: "Expiry Date",
+      placeholder: "Enter Product  Expiry Date",
+    },
+    {
+      label: "Threshold Value",
+      placeholder: "Enter   Threshold Value",
+    },
+  ];
   return (
     <div>
       <div className="bg-white w-full rounded-lg mt-5 p-5">
@@ -22,7 +53,7 @@ const Suppliers = () => {
           </div>
           <div className="flex items-center gap-4">
             <Button
-              text={"Add Products"}
+              text={"Add Supplier "}
               style={`py-3 px-4 bg-[#1366D9] text-white rounded-md`}
               onClick={handleAddProduct}
             />
@@ -51,8 +82,23 @@ const Suppliers = () => {
           />
         </div>
         <AddNewProductModal isOpen={open} onClose={() => setOpen(false)}>
-          <h2 className="text-[#383E49] font-[500] text-[20px]">New Supplier</h2>
-          <p></p>
+          <h2 className="text-[#383E49] font-[500] text-[20px]">
+            New Supplier
+          </h2>
+          <div className="flex  flex-col mt-4 mb-3 w-full">
+            {inputFields.map((field, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between mt-4 mb-3"
+              >
+                <h1>{field.label}</h1>
+                <Input
+                  placeholder={field.placeholder}
+                  style="py-2 px-3 border w-[273px] rounded-md"
+                />
+              </div>
+            ))}
+          </div>
           <div className="flex justify-end gap-2">
             <Button
               style={
@@ -65,7 +111,7 @@ const Suppliers = () => {
               style={
                 "bg-primary-600 text-white border-2 border-[#F0F1F3] py-2 px-4 rounded-lg  "
               }
-              text={"Add Product"}
+              text={"Add Supplier"}
             />
           </div>
         </AddNewProductModal>
