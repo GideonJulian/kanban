@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
 import dashboardIcon from "../../assets/icons/Sidebar/houseIcon.png";
-import inventoryIcon from "../../assets/icons/Sidebar/inventory.png";
+import inventoryIcon from "../../assets/icons/Sidebar/Inventory.png";
 import reportIcon from "../../assets/icons/Sidebar/Report.png";
 import suppliersIcon from "../../assets/icons/Sidebar/Suppliers.png";
 import orderIcon from "../../assets/icons/Sidebar/orders.png";
