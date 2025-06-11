@@ -13,7 +13,7 @@ const route = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <DashboardLayout />,
     children: [
       {
